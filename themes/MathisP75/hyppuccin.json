@@ -1,0 +1,13 @@
+{
+    "name": "hyppuccin",
+    "author": "MathisP75",
+    "hyprland-version": "0.3.0",
+    "description": "Catpuccin hypprland theme + config",
+    "components": [
+        "dunst", "eww", "kitty", "nvim", "ranger", "rofi", "waybar", "wofi", "zsh", "hyprpaper"
+    ],
+    "colors": {
+        "primary": "#1E1E2E",
+        "secondary": "#181825"
+    }
+}
