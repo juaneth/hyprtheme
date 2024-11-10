@@ -7,7 +7,7 @@ import { glob } from "glob";
 
 import { intro, outro } from "@clack/prompts";
 
-let debug = true;
+const debug = Deno.env.get("DEBUG");
 
 let configLocation: string | undefined = undefined;
 
@@ -28,10 +28,11 @@ const config = new Configstore(
     configPath: configLocation,
   }
 );
-
-const hyprDirectory = dir("config") + "/hypr/";
+// --------------------------------
 
 // -- Check if hyprland is installed --
+const hyprDirectory = dir("config") + "/hypr/";
+
 if (!fs.existsSync(hyprDirectory)) {
   intro(`Hyprland setup not found at ${hyprDirectory}.`);
   outro(
@@ -40,6 +41,7 @@ if (!fs.existsSync(hyprDirectory)) {
 
   Deno.exit();
 }
+// --------------------------------
 
 export function setConfig(newconfig: object) {
   // DANGEROUS TO USE, ONLY FOR IMPORTING CONFIGS
