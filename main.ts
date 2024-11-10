@@ -6,7 +6,7 @@ import { getInstalledThemes } from "./lib/config.ts";
 intro(`Welcome to the hyprtheme CLI! Need help? Run \`hyprtheme --help\``);
 
 const action = await select({
-  message: "Select an action:",
+  message: "#--- Select an action: ---#",
   options: [
     { value: "themeinstall", label: "Install a theme" },
     { value: "thememanage", label: "Manage installed themes" },
@@ -24,12 +24,7 @@ const action = await select({
 
 switch (action) {
   case "themeinstall": {
-    type themes = {
-      name: string;
-      description: string;
-    }[];
-
-    const themes: any = await getAllThemes();
+    const themes: any | object[] = await getAllThemes();
 
     if (themes.length === 0) {
       outro("No themes found to install!");
@@ -42,14 +37,20 @@ switch (action) {
       options.push({
         value: theme.name,
         label: theme.name,
-        hint: theme.description,
+        hint: `${theme.description}, by ${theme.author}`,
       });
     }
 
-    const action = await select({
+    const themeSelected = await select({
       message: "Select a theme to install:",
       options: options,
     });
+
+    let themeConfig = themes.find(
+      (themeSelected: object) => themeSelected === themeSelected
+    );
+
+    console.log(themeConfig.name);
 
     break;
   }

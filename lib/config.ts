@@ -43,11 +43,6 @@ if (!fs.existsSync(hyprDirectory)) {
 }
 // --------------------------------
 
-export function setConfig(newconfig: object) {
-  // DANGEROUS TO USE, ONLY FOR IMPORTING CONFIGS
-  config.all = newconfig;
-}
-
 export async function getAllThemes() {
   const themes = await glob("themes/*.json");
 

@@ -1,12 +1,22 @@
 {
-    "name": "hyppuccin",
-    "author": "MathisP75",
-    "version": "0.1.0",
-    "description": "Catpuccin hypprland theme + config",
-    "components": ["dunst", "eww", "kitty", "nvim", "ranger", "rofi", "waybar", "wofi", "zsh"],
-    "repo": "https://github.com/MathisP75/hyppuccin",
-    "colors": {
-        "primary": "#1E1E2E",
-        "secondary": "#181825"
-    }
+  "name": "hyppuccin",
+  "author": "MathisP75",
+  "version": "0.1.0",
+  "description": "Catpuccin hyprland theme + config",
+  "components": [
+    "dunst",
+    "eww",
+    "kitty",
+    "nvim",
+    "ranger",
+    "rofi",
+    "waybar",
+    "wofi",
+    "zsh"
+  ],
+  "repo": "https://github.com/MathisP75/hyppuccin",
+  "colors": {
+    "primary": "#1E1E2E",
+    "secondary": "#181825"
+  }
 }
