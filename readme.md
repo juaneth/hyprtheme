@@ -1,8 +1,8 @@
 # hyprtheme
 
-## A theme manager for [hypr](https://github.com/hyprwm/Hyprland)
+## A theme/config manager for [hyprland](https://github.com/hyprwm/Hyprland)
 
-### Planned Features
+## Planned Features
 
 - Install themes
 - Manage installed themes
@@ -12,22 +12,26 @@
 - Install "dependencies" for themes (waybar widgets, etc)
 - 1 Click Rice
 
-### Installation
+## Installation
+
+Hyprtheme is still in early development, and is currently in a non-functional state. It is not yet possible to install hyprtheme via a package manager.
 
 ```bash
-deno install -A -f --unstable https://deno.land/x/hyprtheme/cli.ts
+git clone https://github.com/juaneth/hyprtheme
+cd hyprtheme
+deno run build
+./hyprtheme
 ```
 
-### Usage
+
+## Development
 
 ```bash
-hyprtheme -i <theme> # Install a theme
-hyprtheme -s <theme> # Switch to a theme
-hyprtheme -m # Manage installed themes
-hyprtheme -b # Manage backups
-hyprtheme -h # Show help
+git clone https://github.com/juaneth/hyprtheme
+cd hyprtheme
+deno i
 ```
 
-### License
+## License
 
 MIT
