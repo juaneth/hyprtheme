@@ -49,7 +49,7 @@ export function setConfig(newconfig: object) {
 export async function getAllThemes() {
   const themes = await glob("themes/*.json");
 
-  let themesArray: Array<Object> = [];
+  const themesArray: Array<object> = [];
 
   themes.forEach((theme) => {
     const themeData = fs.readFileSync(path.join(`${Deno.cwd()}/`, theme));
