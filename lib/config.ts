@@ -1,23 +1,44 @@
 import fs from "node:fs";
 import Configstore from "configstore";
-
 import dir from "https://deno.land/x/dir/mod.ts";
+import * as path from "jsr:@std/path";
 
-const config = new Configstore("hyprtheme", {
-  selectedTheme: "none",
-  installedThemes: [],
-  backups: [],
-  setup: false,
-});
+import { glob, globSync, globStream, globStreamSync, Glob } from "glob";
 
-if (config.get("setup") === false) {
-  const hyprDirectory = dir("config") + "/hypr/";
+import { intro, outro } from "@clack/prompts";
 
-  if (!fs.existsSync(hyprDirectory)) {
-    console.log(`Hyprland setup not found at ${hyprDirectory}`);
+let debug = true;
+
+let configLocation: string | undefined = undefined;
+
+if (debug) {
+  configLocation = `${Deno.cwd()}/debugConfig.json`;
+}
+
+// -- Initalise config --
+const config = new Configstore(
+  "hyprtheme",
+  {
+    // Defaults
+    selectedTheme: "none",
+    installedThemes: [],
+    backups: [],
+  },
+  {
+    configPath: configLocation,
   }
+);
 
-  config.set("setup", true);
+const hyprDirectory = dir("config") + "/hypr/";
+
+// -- Check if hyprland is installed --
+if (!fs.existsSync(hyprDirectory)) {
+  intro(`Hyprland setup not found at ${hyprDirectory}.`);
+  outro(
+    "Please make sure hyprland is installed and setup correctly and try again."
+  );
+
+  Deno.exit();
 }
 
 export function setConfig(newconfig: object) {
@@ -25,11 +46,19 @@ export function setConfig(newconfig: object) {
   config.all = newconfig;
 }
 
-export function getAllThemes() {
-  // TODO: get themes from repo
+export async function getAllThemes() {
+  const themes = await glob("themes/*.json");
 
-  // Just gonna use this for now
-  return [{ name: "hyppuccin", author: "MathisP75" }];
+  let themesArray: Array<Object> = [];
+
+  themes.forEach((theme) => {
+    const themeData = fs.readFileSync(path.join(`${Deno.cwd()}/`, theme));
+    const json = JSON.parse(themeData.toString());
+
+    themesArray.push(json);
+  });
+
+  return themesArray;
 }
 
 export function getSelectedTheme() {

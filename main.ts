@@ -1,5 +1,8 @@
 import { intro, outro, select } from "@clack/prompts";
 
+import { getAllThemes } from "./lib/config.ts";
+import { getInstalledThemes } from "./lib/config.ts";
+
 intro(`Welcome to the hyprtheme CLI! Need help? Run \`hyprtheme --help\``);
 
 const action = await select({
@@ -21,7 +24,22 @@ const action = await select({
 
 switch (action) {
   case "themeinstall":
-    break;
+    let themes = await getAllThemes();
+
+    let options: [{ value: string; label: string; hint?: string }] | [{}?] = [];
+
+    for (let theme of themes) {
+      options.push({
+        value: theme.name,
+        label: theme.name,
+        hint: theme.description,
+      });
+    }
+
+    const action = await select({
+      message: "Select a theme to install:",
+      options: options,
+    });
   case "thememanage":
     break;
   case "import":
