@@ -1,11 +1,19 @@
 // This file is used to store all the components that can be installed. Contribute if youd like to add more of your favorites!
 
+// Name: Obvious name of the component
+// Description: Short description of the component
+// Repository: Link to the repository of the component
+// Paths: Paths to the components configuration files
+// Blacklist: Paths to the components configuration files that should not be shared
+// Function: The function that the component should be used for (eg. bar, notification, widgets, app, runner, wallpaperManager, shell)
+// Replace: Function that should be called when the component is being installed
+
 export type Component {
-  name: string;
-  description: string;
-  repository: string;
+    name: string;
+    description: string;
+    repository: string;
     paths: string[];
-  blacklist?: string[];
+    blacklist?: string[];
     function: "bar" | "notification" | "widgets" | "app" | "runner" | "wallpaperManager" | "shell";
     replace?: Function;
 }
