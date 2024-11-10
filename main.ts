@@ -23,12 +23,22 @@ const action = await select({
 });
 
 switch (action) {
-  case "themeinstall":
-    let themes = await getAllThemes();
+  case "themeinstall": {
+    type themes = {
+      name: string;
+      description: string;
+    }[];
 
-    let options: [{ value: string; label: string; hint?: string }] | [{}?] = [];
+    const themes: any = await getAllThemes();
 
-    for (let theme of themes) {
+    if (themes.length === 0) {
+      outro("No themes found to install!");
+      Deno.exit();
+    }
+
+    const options: { value: string; label: string; hint?: string }[] = [];
+
+    for (const theme of themes) {
       options.push({
         value: theme.name,
         label: theme.name,
@@ -40,6 +50,9 @@ switch (action) {
       message: "Select a theme to install:",
       options: options,
     });
+
+    break;
+  }
   case "thememanage":
     break;
   case "import":

@@ -6,7 +6,7 @@
 // Paths: Paths to the components configuration files
 // Blacklist: Paths to the components configuration files that should not be shared
 // Function: The function that the component should be used for (eg. bar, notification, widgets, app, runner, wallpaperManager, shell)
-// Replace: Function that should be called when the component is being installed
+// Replace: Function that should be called when the component config is being installed
 
 export type Component {
     name: string;

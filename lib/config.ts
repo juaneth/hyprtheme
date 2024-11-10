@@ -3,7 +3,7 @@ import Configstore from "configstore";
 import dir from "https://deno.land/x/dir/mod.ts";
 import * as path from "jsr:@std/path";
 
-import { glob, globSync, globStream, globStreamSync, Glob } from "glob";
+import { glob } from "glob";
 
 import { intro, outro } from "@clack/prompts";
 
