@@ -11,23 +11,25 @@ const config = new Configstore("hyprtheme", {
 });
 
 if (config.get("setup") === false) {
-    const hyprDirectory = dir("config") + "/hypr/";
-    
-    if (!fs.existsSync(hyprDirectory)) {
-      console.log(`Hyprland setup not found at ${hyprDirectory}`);
-    }
-    
+  const hyprDirectory = dir("config") + "/hypr/";
+
+  if (!fs.existsSync(hyprDirectory)) {
+    console.log(`Hyprland setup not found at ${hyprDirectory}`);
+  }
 
   config.set("setup", true);
 }
 
-export function setConfig(key: string, value: any) {
+export function setConfig(newconfig: object) {
   // DANGEROUS TO USE, ONLY FOR IMPORTING CONFIGS
-  config.set(key, value);
+  config.all = newconfig;
 }
 
-export function getThemes() {
+export function getAllThemes() {
   // TODO: get themes from repo
+
+  // Just gonna use this for now
+  return [{ name: "hyppuccin", author: "MathisP75" }];
 }
 
 export function getSelectedTheme() {
