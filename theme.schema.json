@@ -28,11 +28,11 @@
       }
     },
     "repo": {
-      "description": "Components used in the theme",
+      "description": "Repository for the theme",
       "type": "string"
     },
     "colors": {
-      "description": "Components used in the theme",
+      "description": "Color palette for the theme",
       "type": "object",
       "items": {
         "type": "string",

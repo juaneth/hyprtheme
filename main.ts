@@ -46,7 +46,7 @@ switch (action) {
       options: options,
     });
 
-    let themeConfig = themes.find(
+    const themeConfig = themes.find(
       (themeSelected: object) => themeSelected === themeSelected
     );
 
