@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "hyprtheme theme schema",
+  "description": "Schema for hyprtheme themes",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Name of the theme",
+      "type": "string"
+    },
+    "author": {
+      "description": "Author of the theme",
+      "type": "string"
+    },
+    "version": {
+      "description": "Version of the theme",
+      "type": "string"
+    },
+    "description": {
+      "description": "Description of the theme",
+      "type": "string"
+    },
+    "components": {
+      "description": "Components used in the theme",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "repo": {
+      "description": "Components used in the theme",
+      "type": "string"
+    },
+    "colors": {
+      "description": "Components used in the theme",
+      "type": "object",
+      "items": {
+        "type": "string",
+        "pattern": "^#[0-9a-fA-F]{6}$"
+      }
+    }
+  },
+  "required": ["name", "author", "descriptipn", "components"]
+}

@@ -2,9 +2,14 @@
   "version": "4",
   "specifiers": {
     "jsr:@std/assert@1": "1.0.6",
+    "jsr:@std/fs@*": "1.0.5",
+    "jsr:@std/fs@^1.0.5": "1.0.5",
     "jsr:@std/internal@^1.0.4": "1.0.4",
     "jsr:@std/path@*": "1.0.8",
+    "jsr:@std/path@^1.0.7": "1.0.8",
+    "jsr:@std/path@^1.0.8": "1.0.8",
     "npm:@clack/prompts@0.7": "0.7.0",
+    "npm:configstore@*": "7.0.0",
     "npm:configstore@7": "7.0.0",
     "npm:glob@11": "11.0.0"
   },
@@ -13,6 +18,12 @@
       "integrity": "1904c05806a25d94fe791d6d883b685c9e2dcd60e4f9fc30f4fc5cf010c72207",
       "dependencies": [
         "jsr:@std/internal"
+      ]
+    },
+    "@std/fs@1.0.5": {
+      "integrity": "41806ad6823d0b5f275f9849a2640d87e4ef67c51ee1b8fb02426f55e02fd44e",
+      "dependencies": [
+        "jsr:@std/path@^1.0.7"
       ]
     },
     "@std/internal@1.0.4": {
@@ -299,6 +310,8 @@
   "workspace": {
     "dependencies": [
       "jsr:@std/assert@1",
+      "jsr:@std/fs@^1.0.5",
+      "jsr:@std/path@^1.0.8",
       "npm:@clack/prompts@0.7",
       "npm:configstore@7",
       "npm:glob@11"

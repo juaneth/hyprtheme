@@ -1,5 +1,5 @@
-import fs from "node:fs";
-import Configstore from "configstore";
+import * as fs from "jsr:@std/fs";
+import Configstore from "npm:configstore";
 import dir from "https://deno.land/x/dir/mod.ts";
 import * as path from "jsr:@std/path";
 
@@ -49,7 +49,11 @@ export async function getAllThemes() {
   const themesArray: Array<object> = [];
 
   themes.forEach((theme) => {
-    const themeData = fs.readFileSync(path.join(`${Deno.cwd()}/`, theme));
+    const decoder = new TextDecoder("utf-8");
+    const themeData = decoder.decode(
+      Deno.readFileSync(path.join(`${Deno.cwd()}/`, theme))
+    );
+
     const json = JSON.parse(themeData.toString());
 
     themesArray.push(json);
