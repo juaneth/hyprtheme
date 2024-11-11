@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/juaneth/hyprtheme/main/theme.schema.json",
+  "$schema": "https://raw.githubusercontent.com/juaneth/hyprtheme/refs/heads/main/theme.schema.json",
   "name": "hyppuccin",
   "author": "MathisP75",
   "version": "0.1.0",
