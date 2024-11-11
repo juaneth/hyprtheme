@@ -8,22 +8,30 @@
 // Function: The function that the component should be used for (eg. bar, notification, widgets, app, runner, wallpaperManager, shell)
 // Replace: Function that should be called when the component config is being installed
 
-export type Component {
-    name: string;
-    description: string;
-    repository: string;
-    paths: string[];
-    blacklist?: string[];
-    function: "bar" | "notification" | "widgets" | "app" | "runner" | "wallpaperManager" | "shell";
-    replace?: Function;
-}
-
+export type Component = {
+  name: string;
+  description: string;
+  repository: string;
+  paths: string[];
+  blacklist?: string[];
+  function:
+    | "bar"
+    | "notification"
+    | "widgets"
+    | "app"
+    | "runner"
+    | "wallpaperManager"
+    | "shell";
+};
 
 export const hyprland: Component = {
   name: "hyprland",
   description: "A dynamic tiling Wayland compositor",
   repository: "https://github.com/hyprwm/Hyprland",
-  paths: ["/home/[usr]/.config/hypr/hyprland.conf", "/home/[usr]/.config/hypr/theme.conf"],
+  paths: [
+    "/home/[usr]/.config/hypr/hyprland.conf",
+    "/home/[usr]/.config/hypr/theme.conf",
+  ],
   function: "app",
 };
 
@@ -45,7 +53,8 @@ export const dunst: Component = {
 
 export const eww: Component = {
   name: "eww",
-  description: "Eww is a highly configurable, hackable and extendable Wayland compositor",
+  description:
+    "Eww is a highly configurable, hackable and extendable Wayland compositor",
   repository: "https://github.com/elkowar/eww",
   paths: ["/home/[usr]/.config/eww/"],
   function: "widgets",
@@ -56,7 +65,7 @@ export const ranger: Component = {
   description: "Console file manager with vi key bindings",
   repository: "https://github.com/ranger/ranger",
   paths: ["/home/[usr]/.config/ranger/"],
-    function: "app",
+  function: "app",
 };
 
 export const rofi: Component = {
@@ -69,7 +78,8 @@ export const rofi: Component = {
 
 export const waybar: Component = {
   name: "waybar",
-  description: "A fast and customizable Wayland bar for Sway/Wlroots based compositors",
+  description:
+    "A fast and customizable Wayland bar for Sway/Wlroots based compositors",
   repository: "https://github.com/Alexays/Waybar",
   paths: ["/home/[usr]/.config/waybar/"],
   function: "bar",
@@ -77,7 +87,8 @@ export const waybar: Component = {
 
 export const zsh: Component = {
   name: "zsh",
-  description: "A very advanced and programmable command interpreter (shell) for UNIX",
+  description:
+    "A very advanced and programmable command interpreter (shell) for UNIX",
   repository: "https://github.com/zsh-users/zsh",
   paths: ["/home/[usr]/.zshrc", "/home/[usr]/.zprofile", "/home/[usr]/.zshenv"],
   function: "shell",
@@ -108,7 +119,8 @@ export const kitty: Component = {
 
 export const wofi: Component = {
   name: "wofi",
-  description: "Launcher/menu program for wlroots based wayland compositors such as sway",
+  description:
+    "Launcher/menu program for wlroots based wayland compositors such as sway",
   repository: "https://hg.sr.ht/~scoopta/wofi",
   paths: ["/home/[usr]/.config/wofi/"],
   function: "runner",
